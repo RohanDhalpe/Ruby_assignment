@@ -9,13 +9,13 @@ selected_word=hangman_words.sample.chars  #to select word and convert it into ch
 
  p selected_word
 
-chances=5  #worng guess can be made
+chances = 5  #worng guess can be made
 
 
 len=selected_word.length # length of the selected
 p len
 
-guess=0  # to track if all the characters are guessed right
+guess = 0  # to track if all the characters are guessed right
 
 guessed_word=Array.new  # array to uppend the guessed word
 for i in 0...len do
@@ -27,7 +27,7 @@ end
 # to check if the chances are over or if the guess is done
 while chances>0 and len!=guess
 
-    gussed=false #to track if the letter is guessed correct
+    gussed = false #to track if the letter is guessed correct
     p "guess a letter"
     gussed_char = gets.chomp
 
