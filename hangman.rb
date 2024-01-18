@@ -1,66 +1,59 @@
-
-#array of the words to selected for the game
+# Array of words to select for the game
 hangman_words = ['ruby', 'python', 'coding', 'array', 'function', 'server', 'network', 'frontend', 'backend', 'routing',
                  'template', 'middleware', 'library', 'algorithm', 'efficiency', 'iteration', 'agile', 'debug', 'script',
                  'object', 'class', 'array', 'loop', 'computer', 'server', 'framework', 'version', 'testing', 'deploy', 'secure']
 
+# Select a random word and convert it into a character array
+selected_word = hangman_words.sample.chars
 
-selected_word=hangman_words.sample.chars  #to select word and convert it into character array
+# Display the selected word (for debugging purposes)
+p selected_word
 
- p selected_word
+chances = 5  # Number of wrong guesses allowed
 
-chances=5  #worng guess can be made
-
-
-len=selected_word.length # length of the selected
+len = selected_word.length  # Length of the selected word
 p len
 
-guess=0  # to track if all the characters are guessed right
+guess = 0  # To track if all the characters are guessed correctly
 
-guessed_word=Array.new  # array to uppend the guessed word
-for i in 0...len do
-    guessed_word.push ('_')
-end
+# Initialize an array to store the guessed word
+guessed_word = Array.new(len, '_')
 
-# p guessed_word
+# Main game loop to check if the chances are over or if the guess is correct
+while chances > 0 && guess != len
+  guessed = false  # To track if the letter is guessed correctly
+  puts "Guess a letter:"
+  guessed_char = gets.chomp
 
-# to check if the chances are over or if the guess is done
-while chances>0 and len!=guess
-
-    gussed=false #to track if the letter is guessed correct
-    p "guess a letter"
-    gussed_char = gets.chomp
-
-    #to loop through the whole word
-    for i in 0...len
-        if(selected_word.at(i) == gussed_char)
-            gussed=true
-            guessed_word[i] = gussed_char
-            selected_word[i] = nil
-            break
-        end
+  # Loop through the whole word
+  (0...len).each do |i|
+    if selected_word[i] == guessed_char
+      guessed = true
+      guessed_word[i] = guessed_char
+      selected_word[i] = nil
+      break
     end
+  end
 
-    p guessed_word.join(" ")
-    if(gussed == true)  #to increase guess or to decrease the chances if guessed correctly or wrong
-        guess+=1
-    else
-        chances-=1
-    end
+  puts guessed_word.join(" ")
 
-    #final result
-    if guess == len
-        print "Congratulation you guessed the word right. Your guessed word is: "
-        p guessed_word.join
-        break
-    end
-    if chances == 0
-        print "Sorry, you failed try again. Your Guessed word is: "
-        p guessed_word.join(" ")
-        break
-    end
+  if guessed  # Increase guess or decrease chances based on correct or incorrect guess
+    guess += 1
+  else
+    chances -= 1
+  end
 
-    p "you still have #{chances} chances left"
+  # Final result
+  if guess == len
+    puts "Congratulations! You guessed the word right. Your guessed word is: #{guessed_word.join}"
+    break
+  end
 
+  if chances == 0
+    puts "Sorry, you failed. Try again. Your guessed word is: #{guessed_word.join}"
+    break
+  end
+
+  puts "You still have #{chances} chances left"
 end
 
