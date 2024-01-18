@@ -1,4 +1,4 @@
-('a'..'z').reverse_each do |elem|
-  print elem + " "
+('a'..'z').reverse_each do |elements|
+  print elements + " "
 end
 puts "\n"
