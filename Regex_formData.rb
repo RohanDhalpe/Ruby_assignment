@@ -1,13 +1,11 @@
-# regex to get name , email & phone-number from a string
+form_data = "My name is abc gender: M. You can contact me at email: abc.bcd@xyz.com or my work phone: 1234567890 i get paid $5000"
 
-formData = "My name is Rohan Dhalpe gender: M. You can contact me at email: rohan.dhalpe@joshsoftware.com or my work phone: 8010317758 i get paid $5000"
-  
-name = "name : " + formData.match(/My name is (\w+ \w+)/)[1].to_s
-email = "email : " + formData.match(/email: (\w+@\w+\.\w+)/)[1].to_s
-phone = "phone : " + formData.match(/phone: (\d+)/)[1].to_s
-gender = formData.match(/gender: \w/).to_s
-amount = "amount : " + formData.match(/\$(\d+)/).to_s
+full_name = "Name: " + form_data.match(/My name is (\p{L}+\s\p{L}+)/i)[1].to_s
+email_address = "Email: " + form_data.match(/email:\s?(\S+@\S+\.\S+)/i)[1].to_s
+phone_number = "Phone: " + form_data.match(/phone:\s?(\d{10,})/)[1].to_s
+gender = "Gender: " + form_data.match(/gender:\s?(\w)/i)[1].to_s
+amount_paid = "Amount: " + form_data.match(/\$([\d,]+)/)[1].to_s
 
+# Display
+puts full_name, gender, email_address, phone_number, amount_paid
 
-# display
-puts name , gender , email , phone , amount
