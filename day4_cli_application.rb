@@ -15,9 +15,9 @@ c] Whether the country can win the war or not
 =end
 
 # Module for loan status
-module IMFLoanStatus
-  module_function
+# Module for loan status
 
+module IMFLoan
   def check_for_loan(country, gdp, population)
     if gdp <= 2000 && population >= 1000000
       puts "#{country} will get a loan from the IMF."
@@ -28,9 +28,7 @@ module IMFLoanStatus
 end
 
 # Module for UN Security Council status
-module UNSecurityCouncilStatus
-  module_function
-
+module UNSecurityCouncil
   def permission_to_seat(country, gdp, army_strength)
     if gdp >= 5000 && army_strength >= 50000
       puts "#{country} can have a sufficient seat in the UN Security Council."
@@ -45,9 +43,7 @@ module UNSecurityCouncilStatus
 end
 
 # Module for country development status
-module CountryDevelopmentStatus
-  module_function
-
+module CountryDevelopment
   def check_state(gdp, population, country)
     gdp_per_capita = gdp / population
     if gdp_per_capita <= 0.4
@@ -59,9 +55,7 @@ module CountryDevelopmentStatus
 end
 
 # Module for war capability status
-module WarCapabilityStatus
-  module_function
-
+module WarCapability
   def assess_capability(country, army_strength)
     if army_strength >= 45000
       puts "#{country} can win the war with an army capacity of #{army_strength}."
@@ -75,10 +69,10 @@ end
 
 # Class that holds all modules
 class CountryAnalysis
-  include IMFLoanStatus
-  include UNSecurityCouncilStatus
-  include CountryDevelopmentStatus
-  include WarCapabilityStatus
+  include IMFLoan
+  include UNSecurityCouncil
+  include CountryDevelopment
+  include WarCapability
 
   attr_accessor :country, :gdp, :population, :army_strength
 
@@ -98,12 +92,12 @@ class CountryAnalysis
 end
 
 # Random sample data
-sample_country_analysis = CountryAnalysis.new("INDIA", 3500, 1200000, 48000)
-sample_country_analysis.analyze_country
+india_country_analysis = CountryAnalysis.new("INDIA", 3500, 1200000, 48000)
+india_country_analysis.analyze_country
 print("\n")
-sample_country_analysis = CountryAnalysis.new("CHINA", 2000, 1800000, 50000)
-sample_country_analysis.analyze_country
+china_country_analysis = CountryAnalysis.new("CHINA", 2000, 1800000, 50000)
+china_country_analysis.analyze_country
 print("\n")
-sample_country_analysis = CountryAnalysis.new("UK", 1950, 100000, 35000)
-sample_country_analysis.analyze_country
+uk_country_analysis = CountryAnalysis.new("UK", 1950, 100000, 35000)
+uk_country_analysis.analyze_country
 

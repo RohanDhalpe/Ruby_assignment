@@ -1,4 +1,4 @@
-module WarCapabilityStatus
+module WarCapability
   module_function
 
   def assess_capability(country, army_strength)

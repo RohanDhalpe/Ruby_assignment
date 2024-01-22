@@ -1,6 +1,4 @@
-module CountryDevelopmentStatus
-  module_function
-
+module CountryDevelopment
   def check_state(gdp, population, country)
     gdp_per_capita = gdp / population
     if gdp_per_capita <= 0.4

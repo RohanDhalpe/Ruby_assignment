@@ -1,4 +1,4 @@
-module UNSecurityCouncilStatus
+module UNSecurityCouncil
   module_function
 
   def permission_to_seat(country, gdp, army_strength)

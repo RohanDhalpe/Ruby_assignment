@@ -1,14 +1,14 @@
 # country_analysis.rb
-require_relative 'imf_loan_status'
-require_relative 'un_security_council_status'
-require_relative 'country_development_status'
-require_relative 'war_capability_status'
+require_relative 'imf_loan'
+require_relative 'un_security_council'
+require_relative 'country_development'
+require_relative 'war_capability'
 
 class CountryAnalysis
-  include IMFLoanStatus
-  include UNSecurityCouncilStatus
-  include CountryDevelopmentStatus
-  include WarCapabilityStatus
+  include IMFLoan
+  include UNSecurityCouncil
+  include CountryDevelopment
+  include WarCapability
 
   attr_accessor :country, :gdp, :population, :army_strength
 
