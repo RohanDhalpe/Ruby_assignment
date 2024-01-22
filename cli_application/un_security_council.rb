@@ -1,6 +1,4 @@
 module UNSecurityCouncil
-  module_function
-
   def permission_to_seat(country, gdp, army_strength)
     if gdp >= 5000 && army_strength >= 50000
       puts "#{country} can have a sufficient seat in the UN Security Council."
