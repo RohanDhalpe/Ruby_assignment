@@ -7,8 +7,5 @@ end
 print 'Enter year: '
 year = gets.chomp.to_i
 
-if leap_year?(year)
-  puts "#{year} is a leap year."
-else
-  puts "#{year} is not a leap year."
-end
+puts leap_year?(year) ? "#{year} is a leap year." : "#{year} is not a leap year."
+

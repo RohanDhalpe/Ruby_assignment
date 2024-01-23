@@ -7,7 +7,7 @@ def find_largest_element(arr)
   largest_element = arr[0]
 
   arr.each do |element|
-    if element >largest_element
+    if element > largest_element
       largest_element = element
     end
   end
@@ -19,8 +19,4 @@ end
 array = [3, 7, 1, 9, 4, 6, 2, 8]
 result = find_largest_element(array)
 
-if result.nil?
-  puts 'The given array is empty.'
-else
-  puts "The largest element : #{result}"
-end
+puts result.nil? ? 'The given array is empty.' : "The largest element: #{result}"
