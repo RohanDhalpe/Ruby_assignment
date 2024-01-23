@@ -1,6 +1,8 @@
+# Create a program to count the number of vowels and consonants in a given string.
 def count_vowels_and_consonants(input_string)
-  vowels = 'aeiouAEIOU'
-  consonants = 'bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ'
+  input_string = input_string.downcase
+  vowels = 'aeiou'
+  consonants = 'bcdfghjklmnpqrstvwxyz'
 
   vowel_count = 0
   consonant_count = 0
@@ -16,8 +18,8 @@ def count_vowels_and_consonants(input_string)
   [vowel_count, consonant_count] # function returns counts of vowel and consonant
 end
 
-# Example :
-input_string = "Hello World!"
+# Example:
+input_string = 'Hello World!'
 vowel_count, consonant_count = count_vowels_and_consonants(input_string)
 
 puts "Number of vowels: #{vowel_count}"

@@ -1,42 +1,80 @@
-def calculate_circle_area(radius)
-  return Math::PI * radius**2
+#Implement a program to calculate the area of a circle, rectangle, or triangle based on user input.
+class Area
+  def initialize
+    puts "Initializing in the base class"
+  end
+
+  def calculate_area
+    puts "Calculating area in the base class"
+    # overridden by subclasses
+  end
 end
 
-def calculate_rectangle_area(length, width)
-  return length * width
+class Circle < Area
+  def initialize(radius)
+    super()
+    @radius = radius
+  end
+
+  def calculate_area
+    Math::PI * @radius**2
+  end
 end
 
-def calculate_triangle_area(base, height)
-  return 0.5 * base * height
+class Rectangle < Area
+  def initialize(length, width)
+    super()
+    @length = length
+    @width = width
+  end
+
+  def calculate_area
+    @length * @width
+  end
 end
 
-puts "Choose a shape to calculate the area: "
-puts "1. Circle"
-puts "2. Rectangle"
-puts "3. Triangle"
+class Triangle < Area
+  def initialize(base, height)
+    super()
+    @base = base
+    @height = height
+  end
+
+  def calculate_area
+    0.5 * @base * @height
+  end
+end
+
+puts 'Choose a shape to calculate the area: '
+puts '1. Circle'
+puts '2. Rectangle'
+puts '3. Triangle'
 
 choice = gets.chomp.to_i
 
-case choice
+shape = case choice
 when 1
-  puts "Enter the radius of the circle: "
+  puts 'Enter the radius of the circle: '
   radius = gets.chomp.to_f
-  area = calculate_circle_area(radius)
-  puts "The area of the circle is: #{area}"
+  Circle.new(radius)
 when 2
-  puts "Enter the length of the rectangle: "
+  puts 'Enter the length of the rectangle: '
   length = gets.chomp.to_f
-  puts "Enter the width of the rectangle: "
+  puts 'Enter the width of the rectangle: '
   width = gets.chomp.to_f
-  area = calculate_rectangle_area(length, width)
-  puts "The area of the rectangle is: #{area}"
+  Rectangle.new(length, width)
 when 3
-  puts "Enter the base of the triangle: "
+  puts 'Enter the base of the triangle: '
   base = gets.chomp.to_f
-  puts "Enter the height of the triangle: "
+  puts 'Enter the height of the triangle: '
   height = gets.chomp.to_f
-  area = calculate_triangle_area(base, height)
-  puts "The area of the triangle is: #{area}"
+  Triangle.new(base, height)
 else
-  puts "Invalid choice. Enter valid choice"
+  puts 'Invalid choice. Enter a valid choice.'
+  nil
+end
+
+if shape
+  area = shape.calculate_area
+  puts "The area of the chosen shape is: #{area}"
 end

@@ -8,7 +8,7 @@ def find_common_elements(array1, array2)
     end
   end
 
-  return common_elements
+  common_elements
 end
 
 # Example usage:

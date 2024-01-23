@@ -1,17 +1,16 @@
 # Write a program to calculate the factorial of a given number.
-print "Enter a number: "
+print 'Enter a number: '
 number = gets.chomp.to_i
 
 factorial = 1
 
 if number == 0
-  puts "Could not find the factorial of zero."
+  puts 'Factorial of 0 is 1'
 else
   count = 1
   while count <= number
-    factorial = factorial * count
+    factorial *= count
     count += 1
   end
+  puts "Factorial of #{number} is #{factorial}"
 end
-
-puts "Factorial of #{number} is #{factorial}"

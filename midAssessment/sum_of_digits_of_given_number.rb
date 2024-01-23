@@ -12,7 +12,7 @@ def sum_of_digits(number)
 end
 
 # Example:
-print "Enter an integer: "
+print 'Enter an integer: '
 user_input = gets.chomp.to_i
 
 result = sum_of_digits(user_input)
