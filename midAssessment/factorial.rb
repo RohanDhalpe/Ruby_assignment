@@ -14,3 +14,13 @@ else
   end
   puts "Factorial of #{number} is #{factorial}"
 end
+
+# Alternative method
+
+print 'Enter a number: '
+number = gets.chomp.to_i
+
+factorial = (1..number).reduce(1, :*)
+
+puts "Factorial of #{number} is #{factorial}"
+

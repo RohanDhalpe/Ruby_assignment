@@ -24,3 +24,22 @@ vowel_count, consonant_count = count_vowels_and_consonants(input_string)
 
 puts "Number of vowels: #{vowel_count}"
 puts "Number of consonants: #{consonant_count}"
+
+# Alternative method
+
+def count_vowels_and_consonants(input_string)
+  input_string = input_string.downcase
+
+  vowel_count = input_string.count('aeiou')
+  consonant_count = input_string.count('bcdfghjklmnpqrstvwxyz')
+
+  [vowel_count, consonant_count]
+end
+
+# Example:
+input_string = 'Hello World!'
+vowel_count, consonant_count = count_vowels_and_consonants(input_string)
+
+puts "Number of vowels: #{vowel_count}"
+puts "Number of consonants: #{consonant_count}"
+

@@ -18,3 +18,18 @@ user_input = gets.chomp.to_i
 result = sum_of_digits(user_input)
 
 puts "Sum of digits: #{result}"
+
+# Alternative solution
+
+def sum_of_digits(number)
+  number.to_s.chars.map(&:to_i).sum
+end
+
+# Example:
+print 'Enter an integer: '
+user_input = gets.chomp.to_i
+
+result = sum_of_digits(user_input)
+
+puts "Sum of digits: #{result}"
+

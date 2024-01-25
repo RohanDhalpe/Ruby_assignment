@@ -1,10 +1,10 @@
 # Implement a program to check if a given string is a palindrome or not.
 def palindrome?(string)
   if string == string.reverse
-    return true
+     true
   else
     puts 'String is not a palindrome'
-    return false
+     false
   end
 end
 

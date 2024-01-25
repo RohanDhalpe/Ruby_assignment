@@ -1,11 +1,11 @@
 #Implement a program to calculate the area of a circle, rectangle, or triangle based on user input.
 class Area
   def initialize
-    puts "Initializing in the base class"
+    puts 'Initializing in the base class'
   end
 
   def calculate_area
-    puts "Calculating area in the base class"
+    puts 'Calculating area in the base class'
     # overridden by subclasses
   end
 end
